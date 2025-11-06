@@ -1,14 +1,14 @@
-# qilb
+# quipy
 
-**qilb** is a quantum circuit simulator with sparse and dense density matrix implementations.
+**quipy** is a quantum circuit simulator with sparse and dense density matrix implementations.
 
 
-### qilb.dense
+### quipy.dense
 The dense simulation consists of direct numpy matrix manipulation, such as applying operators to the density matrix $U \rho U^\dagger$, taking the trace $\text{Tr}(\rho)$, etc. 
 
 This model of simulation becomes inefficient when simulating large systems with a few matrix entries. For example, a 10 qubit system has a density matrix of size $1024 \times 1024$, which is $1048576$ elements! For a state, such as $\frac{1}{2}\ket{0}^{\otimes 10} \bra{0}^{\otimes 10}  + \frac{1}{2} \ket{1}^{\otimes 10}\bra{1}^{\otimes 10}$, this type of simulation is overkill.
 
-### qilb.sparse
+### quipy.sparse
 The sparse simulation consists of term manipulation. Internally, we treat the density matrix entries as a list of terms with coefficients, just like the mathematical definition of a density matrix:
 
 $$ \rho = \sum_i p_i \ket{\psi_i} \bra{\psi_i}. $$
@@ -21,7 +21,7 @@ This type of simulation, as the name suggests, is preferred for sparse systemsâ€
 
 The state $\frac{1}{2}\ket{0}^{\otimes 10} \bra{0}^{\otimes 10}  + \frac{1}{2} \ket{1}^{\otimes 10}\bra{1}^{\otimes 10}$ in this simulation just requires two entries in the term list, compared to the $1048576$ elements required in the dense simulation.
 
-### qilb.ops
+### quipy.ops
 This is an auxiliary module which holds definitions for common quantum gates, such as $I, X, Y, Z, H, S, T, R_x, R_y,$ and $R_z$.
 
 # Examples
@@ -29,7 +29,7 @@ The library supports latex representation of the current state, which is useful 
 
 
 ```python
-import qilb.sparse as qis
+import quipy.sparse as qis
 
 state = qis.State(num_qubits=2)
 state
@@ -46,8 +46,8 @@ Below are sparse and dense examples of the Bell circuit.
 
 
 ```python
-import qilb.sparse as qis
-import qilb as qi
+import quipy.sparse as qis
+import quipy as qi
 
 # Bell circuit
 circuit = qis.Circuit(num_qubits=2)
@@ -70,8 +70,8 @@ $$\rho = \frac{1}{2}|00\rangle\langle 00| + \frac{1}{2}|00\rangle\langle 11| + \
 
 
 ```python
-import qilb.dense as qis
-import qilb as qi
+import quipy.dense as qis
+import quipy as qi
 
 # Bell circuit
 circuit = qis.Circuit(num_qubits=2)
@@ -96,8 +96,8 @@ Below is an implementation of the repetition error correcting circuit using the 
 
 
 ```python
-import qilb.sparse as qis
-import qilb as qi
+import quipy.sparse as qis
+import quipy as qi
 from IPython.display import HTML
 
 circuit = qis.Circuit(num_qubits=5)
