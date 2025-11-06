@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "qipy"
+name = "qilb"
 version = "0.1.1"
 authors = [
     {name = "Vladimir Dabić", email = "vddabic@gmail.com"}
@@ -12,7 +12,7 @@ description = "Quantum circuit simulator with sparse and dense implementations"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "numpy>=2.2.4",
+    "numpy",
 ]
 keywords = ["quantum", "quantum computing", "simulation", "quantum circuits", "quantum information"]
 classifiers = [
@@ -22,5 +22,5 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/vladimirdabic/qipy"
-Repository = "https://github.com/vladimirdabic/qipy"
+Homepage = "https://github.com/vladimirdabic/qilb"
+Repository = "https://github.com/vladimirdabic/qilb"
